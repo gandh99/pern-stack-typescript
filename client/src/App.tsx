@@ -7,8 +7,8 @@ import store from './redux/store'
 import { Provider } from 'react-redux'
 import { PrivateRoute } from './reusableComponents/PrivateRoute'
 import { Switch, Route, Redirect, Router } from 'react-router-dom'
-import LoginPage from './login/LoginPage';
-import RegisterPage from './register/RegisterPage';
+import LoginPage from './authentication/LoginPage';
+import RegisterPage from './authentication/RegisterPage';
 import Home from './home/Home';
 
 function App() {

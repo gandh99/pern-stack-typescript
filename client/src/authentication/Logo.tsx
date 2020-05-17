@@ -1,13 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+import LogoImage from '../images/logo.png'
 
 export default function Logo() {
     const classes = useStyles()
 
     return (
         <div>
-            <Typography className={classes.logo} variant="h5" component="h2">
+            <img className={classes.logoImage} src={LogoImage} />
+            <Typography className={classes.logoText} variant="h5" component="h2">
                 Scribbler
             </Typography>
         </div>
@@ -15,8 +17,12 @@ export default function Logo() {
 }
 
 const useStyles = makeStyles((theme) => ({
-    logo: {
-        color: theme.palette.primary.dark,
+    logoImage: {
+        width: '5rem',
+        height: '5rem'
+    },
+    logoText: {
+        color: 'white',
         textTransform: 'uppercase',
         letterSpacing: '2px',
         fontWeight: 800

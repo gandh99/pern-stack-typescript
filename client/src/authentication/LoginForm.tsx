@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, FormEvent } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { TextField, Button, Input, InputBase } from '@material-ui/core'
+import { Button, InputBase } from '@material-ui/core'
+import { usernameIsValid, passwordIsValid } from '../utils/validation/authentication'
+import Message, { MessageProps } from './Message'
 
-export default function LoginForm() {
+export default function LoginForm(props: { messageProps: MessageProps }) {
     const classes = useStyles()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
+    const onSubmit = (event: FormEvent, username: string, password: string): void => {
+        event.preventDefault()
+
+        if (usernameIsValid(username.trim()) && passwordIsValid(password.trim())) {
+            console.info('valid')
+        }
+
+        resetForm()
+    }
+
+    const resetForm = (): void => {
+        setUsername('')
+        setPassword('')
+    }
+
     return (
-        <div className={classes.root}>
+        <form className={classes.root} onSubmit={event => onSubmit(event, username, password)}>
             <InputBase
                 className={classes.textInput}
                 onChange={event => setUsername(event.target.value)}
@@ -25,6 +42,7 @@ export default function LoginForm() {
                 value={password}
             />
             <Button
+                onClick={event => onSubmit(event, username, password)}
                 className={classes.button}
                 disableElevation
                 type='submit'
@@ -32,7 +50,8 @@ export default function LoginForm() {
                 color="primary">
                 Login
             </Button>
-        </div>
+            <Message messageProps={props.messageProps} />
+        </form>
     )
 }
 
@@ -40,7 +59,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        padding: '2rem'
+        padding: '1rem 2rem',
+        backgroundColor: 'white',
+        margin: '2.5rem auto 0 auto',
+        maxWidth: '35rem',
+        borderRadius: '10px'
     },
     textInput: {
         margin: '1.5rem 0 0 0',
@@ -50,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px'
     },
     button: {
-        margin: '3rem 0 0 0',
+        margin: '1.5rem 0 0 0',
         borderRadius: '10px',
         padding: '0.5rem 0',
         backgroundColor: theme.palette.secondary.dark,
