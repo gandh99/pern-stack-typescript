@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button, Input, InputBase } from '@material-ui/core'
 
 export default function LoginForm() {
     const classes = useStyles()
@@ -9,14 +9,14 @@ export default function LoginForm() {
 
     return (
         <div className={classes.root}>
-            <TextField
+            <InputBase
                 className={classes.textInput}
                 onChange={event => setUsername(event.target.value)}
                 required
                 placeholder={'Username'}
                 value={username}
             />
-            <TextField
+            <InputBase
                 className={classes.textInput}
                 onChange={event => setPassword(event.target.value)}
                 required
@@ -26,6 +26,7 @@ export default function LoginForm() {
             />
             <Button
                 className={classes.button}
+                disableElevation
                 type='submit'
                 variant="contained"
                 color="primary">
@@ -42,11 +43,17 @@ const useStyles = makeStyles((theme) => ({
         padding: '2rem'
     },
     textInput: {
-        margin: '1.5rem 0 0 0'
+        margin: '1.5rem 0 0 0',
+        backgroundColor: theme.palette.grey[300],
+        opacity: 0.4,
+        padding: '0.5rem 1rem',
+        borderRadius: '10px'
     },
     button: {
-        margin: '4rem 0 0 0',
-        borderRadius: '30px',
-        padding: '0.7rem 0'
+        margin: '3rem 0 0 0',
+        borderRadius: '10px',
+        padding: '0.5rem 0',
+        backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.grey[700],
     }
 }))

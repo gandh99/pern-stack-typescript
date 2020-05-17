@@ -16,6 +16,9 @@ export default function Logo() {
 
 const useStyles = makeStyles((theme) => ({
     logo: {
-
+        color: theme.palette.primary.dark,
+        textTransform: 'uppercase',
+        letterSpacing: '2px',
+        fontWeight: 800
     },
 }))

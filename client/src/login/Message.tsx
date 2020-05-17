@@ -16,14 +16,17 @@ export default function Message(props: { mainMessage: string, link: string, link
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: '1rem'
     },
     message: {
         fontSize: 14,
-        fontWeight: 'normal'
+        fontWeight: 'normal',
+        color: theme.palette.grey[800]
     },
     link: {
         color: theme.palette.secondary.light,
         cursor: 'pointer',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        fontWeight: 500
     }
 }))

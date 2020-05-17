@@ -20,5 +20,6 @@ export default function LoginPage() {
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: '6rem'
     },
 }))
