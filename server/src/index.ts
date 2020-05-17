@@ -18,9 +18,7 @@ app.use(passport.session())
 app.use(express.json())
 
 // Routes
-// app.use('/diary', require('./routes/api/diary'))
-// app.use('/friends', require('./routes/api/friends'))
-// app.use('/notifications', require('./routes/api/notifications'))
+app.use('/authentication', require('./routes/authentication'))
 
 // Start the server
 const port: string | number = process.env.SERVER_PORT || 5000
