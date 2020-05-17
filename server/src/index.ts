@@ -1,14 +1,13 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
-const dotenv = require('dotenv')
+import dotenv from 'dotenv'
 // const passport = require("passport")
-// const connectDB = require('./config/db')
 
 // Init
 const app: Application = express()
-dotenv.config({ path: './config/.env' })
+dotenv.config()
 
 // Connect to DB
-// connectDB()
+const db = require('./config/db')
 
 // Passport
 // require("./config/passport")(passport)

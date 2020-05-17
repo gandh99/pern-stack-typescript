@@ -1,8 +1,11 @@
 const { Client } = require('pg');
 
-const client = new Client();
+const client = new Client()
+client
+    .connect()
+    .then(() => console.log('Connected to PostgreSQL database...'))
+    .catch((err: any) => console.log(err));
 
-client.connect();
 // const query = `
 // CREATE TABLE users (
 //     username varchar,
