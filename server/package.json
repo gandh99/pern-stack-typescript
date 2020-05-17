@@ -13,9 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/passport": "^1.0.3",
+    "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pg": "^8.2.1"
   },
   "devDependencies": {

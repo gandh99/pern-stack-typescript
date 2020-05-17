@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
 import dotenv from 'dotenv'
-// const passport = require("passport")
+const passport = require("passport")
 
 // Init
 const app: Application = express()
@@ -10,9 +10,9 @@ dotenv.config()
 const db = require('./config/db')
 
 // Passport
-// require("./config/passport")(passport)
-// app.use(passport.initialize())
-// app.use(passport.session())
+require("./config/passport")(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Bodyparser
 app.use(express.json())
