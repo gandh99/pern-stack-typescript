@@ -7,8 +7,7 @@ import store from './redux/store'
 import { Provider } from 'react-redux'
 import { PrivateRoute } from './reusableComponents/PrivateRoute'
 import { Switch, Route, Redirect, Router } from 'react-router-dom'
-import LoginPage from './authentication/LoginPage';
-import RegisterPage from './authentication/RegisterPage';
+import AuthenticationPage from './authentication/AuthenticationPage';
 import Home from './home/Home';
 
 function App() {
@@ -18,8 +17,7 @@ function App() {
         <Router history={history}>
           <div className="App">
             <Switch>
-              <Route path='/login' component={LoginPage} />
-              <Route path='/register' component={RegisterPage} />
+              <Route path='/authentication' component={AuthenticationPage} />
               <PrivateRoute exact path='/' component={Home} />
               <Redirect from='*' to='/' />
             </Switch>

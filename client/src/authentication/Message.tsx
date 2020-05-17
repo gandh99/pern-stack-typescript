@@ -1,21 +1,21 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+import { AuthenticationForm } from './AuthenticationPage'
 
-export interface MessageProps {
+export default function Message(props: {
     mainMessage: string,
-    link: string,
-    linkMessage: string
-}
-
-export default function Message(props: { messageProps: MessageProps }) {
+    linkMessage: string,
+    setForm: any,
+    link: AuthenticationForm
+}) {
     const classes = useStyles()
-    const { mainMessage, link, linkMessage } = props.messageProps
+    const { mainMessage, linkMessage, setForm, link } = props
 
     return (
         <div className={classes.root}>
             <Typography className={classes.message} variant="h6">
-                {mainMessage} <a className={classes.link} href={link}>{linkMessage}</a>
+                {mainMessage} <span className={classes.link} onClick={() => setForm(link)}>{linkMessage}</span>
             </Typography>
         </div>
     )

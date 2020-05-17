@@ -5,7 +5,7 @@ import { usernameIsValid, passwordIsValid } from '../utils/validation/authentica
 import Message from './Message'
 import { AuthenticationForm } from './AuthenticationPage'
 
-export default function LoginForm(props: { setForm: any }) {
+export default function RegisterForm(props: { setForm: any }) {
     const classes = useStyles()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -49,13 +49,13 @@ export default function LoginForm(props: { setForm: any }) {
                 type='submit'
                 variant="contained"
                 color="primary">
-                Login
+                Register
             </Button>
             <Message
-                mainMessage={"Don't have an account?"}
-                linkMessage={'Register now!'}
+                mainMessage={'Already a member?'}
+                linkMessage={'Login now!'}
                 setForm={props.setForm}
-                link={AuthenticationForm.REGISTER}
+                link={AuthenticationForm.LOGIN}
             />
         </form>
     )

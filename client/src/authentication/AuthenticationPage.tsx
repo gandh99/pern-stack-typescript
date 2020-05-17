@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 import Logo from './Logo'
 import Background from './Background'
-import Message, { MessageProps } from './Message'
 
-export default function LoginPage() {
+export enum AuthenticationForm {
+    LOGIN,
+    REGISTER
+}
+
+export default function AuthenticationPage() {
     const classes = useStyles()
-    const messageProps: MessageProps = {
-        mainMessage: "Don't have an account?",
-        link: '/register',
-        linkMessage: 'Register now!'
-    }
+    const [form, setForm] = useState(AuthenticationForm.LOGIN)
 
     return (
         <div className={classes.root}>
             <Background />
             <Logo />
-            <LoginForm messageProps={messageProps} />
+            {form === AuthenticationForm.LOGIN 
+            ? <LoginForm setForm={setForm} /> 
+            : <RegisterForm setForm={setForm} />}
         </div>
     )
 }
