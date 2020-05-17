@@ -8,7 +8,7 @@ export default function Logo() {
 
     return (
         <div>
-            <img className={classes.logoImage} src={LogoImage} />
+            <img className={classes.logoImage} src={LogoImage} alt='Logo' />
             <Typography className={classes.logoText} variant="h5" component="h2">
                 Scribbler
             </Typography>

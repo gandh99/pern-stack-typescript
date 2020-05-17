@@ -18,9 +18,9 @@ export default function AuthenticationPage() {
         <div className={classes.root}>
             <Background />
             <Logo />
-            {form === AuthenticationForm.LOGIN 
-            ? <LoginForm setForm={setForm} /> 
-            : <RegisterForm setForm={setForm} />}
+            {form === AuthenticationForm.LOGIN
+                ? <LoginForm setForm={setForm} />
+                : <RegisterForm setForm={setForm} />}
         </div>
     )
 }
