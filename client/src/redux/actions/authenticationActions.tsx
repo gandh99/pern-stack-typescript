@@ -29,7 +29,7 @@ export const loginUserAction = (username: string, password: string, success: Fun
         .then(res => {
             dispatch({
                 type: authentication.LOGIN_SUCCESS,
-                payload: res
+                payload: res.data.data
             })
             success()
         })

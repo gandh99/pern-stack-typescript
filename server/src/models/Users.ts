@@ -1,30 +1,26 @@
 import { Request, Response } from 'express'
 const client = require('../config/db');
-const bcrypt = require("bcrypt");
 
-module.exports.get = (req: Request, res: Response) => {
-    const query: string = `SELECT * FROM users ORDER BY userId ASC`
-    client.query(query, (err: Error, results: any) => {
-        if (err) throw err
-        console.log(results)
-        res.status(200).json(results)
-    })
+module.exports.findById = async (id: number) => {
+    const query: string = `SELECT * FROM users WHERE user_id = ($1) LIMIT 1`
+    
+    try {
+        const res = await client.query(query, [id])
+        return res.rows[0]
+    } catch (error) {
+        console.error(error)
+    }
 }
 
-module.exports.findById = (id: number, done: any) => {
-    const query: string = `SELECT * FROM users WHERE userId = ? LIMIT 1`
-    client.query(query, id, (err: Error, results: any) => {
-        if (err) throw err
-        done(results[0])
-    })
-}
+module.exports.findByUsername = async (username: string) => {
+    const query: string = `SELECT * FROM users WHERE username = ($1) LIMIT 1`
 
-module.exports.findByUsername = (username: string, done: any) => {
-    const query: string = `SELECT * FROM users WHERE username = ? LIMIT 1`
-    client.query(query, username, (err: Error, results: any) => {
-        if (err) throw err
-        done(results[0])
-    })
+    try {
+        const res = await client.query(query, [username])
+        return res.rows[0]
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 module.exports.create = async (username: string, password: string) => {

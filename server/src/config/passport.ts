@@ -3,12 +3,12 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const Users = require('../models/Users')
 
-passport.serializeUser<any, any>((user, done) => done(null, user.userId))
+passport.serializeUser<any, any>((user, done) => done(null, user.user_id))
 
-passport.deserializeUser((userId: number, done) => done(null, Users.findById(userId)))
+passport.deserializeUser((user_id: number, done) => done(null, Users.findById(user_id)))
 
 function initialize(passport: any) {
-    const authenticateUser = (username: string, password: string, done: any) => {
+    const authenticateUser = (username: string, password: string, done: Function) => {
         // Match User
         Users
             .findByUsername(username)
