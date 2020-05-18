@@ -4,9 +4,12 @@ import { Button, InputBase } from '@material-ui/core'
 import { usernameIsValid, passwordIsValid } from '../utils/validation/authentication'
 import Message from './Message'
 import { AuthenticationForm } from './AuthenticationPage'
+import { useDispatch } from 'react-redux'
+import { registerUserAction } from '../redux/actions/authenticationActions'
 
 export default function RegisterForm(props: { setForm: any }) {
     const classes = useStyles()
+    const dispatch = useDispatch()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,7 +17,7 @@ export default function RegisterForm(props: { setForm: any }) {
         event.preventDefault()
 
         if (usernameIsValid(username.trim()) && passwordIsValid(password.trim())) {
-            console.info('valid')
+            dispatch(registerUserAction(username, password))
         }
 
         resetForm()

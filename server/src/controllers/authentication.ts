@@ -6,5 +6,6 @@ module.exports.login = (req: Request, res: Response) => {
 }
 
 module.exports.register = (req: Request, res: Response) => {
-
+    console.log(req.body)
+    res.status(200).send('ok')
 }
