@@ -27,6 +27,15 @@ export default function (state = initialState, action: any) {
             return {
                 ...state
             }
+        case authentication.TOKEN_REFRESH_SUCCESS:
+            const newAccessToken = action.payload
+            localStorage.setItem('accessToken', newAccessToken)
+
+            return {
+                ...state,
+                accessToken: newAccessToken
+            }
+        case authentication.REGISTER_FAIL:
         case authentication.REGISTER_FAIL:
         case authentication.LOGIN_FAIL:
             localStorage.removeItem('accessToken')

@@ -1,5 +1,5 @@
 import { authentication } from '../actionTypes'
-import axios from 'axios'
+import axios from '../../config/axiosConfig'
 import { returnErrors } from './errorActions'
 
 export const registerUserAction = (username: string, password: string, success: Function, error: Function) => (dispatch: any) => {

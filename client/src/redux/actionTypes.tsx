@@ -3,6 +3,8 @@ export const authentication = {
     REGISTER_FAIL: 'REGISTER_FAIL',
     LOGIN_SUCCESS: 'LOGIN_SUCCESS',
     LOGIN_FAIL: 'LOGIN_FAIL',
+    TOKEN_REFRESH_SUCCESS: 'TOKEN_REFRESH_SUCCESS',
+    TOKEN_REFRESH_FAIL: 'TOKEN_REFRESH_FAIL'
 }
 
 export const error = {
