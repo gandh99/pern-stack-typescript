@@ -13,6 +13,7 @@ const refreshTokenAction = (error: any) => {
         return Promise.reject(error)
     }
 
+    // Attempt a token refresh
     if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true
         const refreshToken = localStorage.getItem('refreshToken')
@@ -38,6 +39,15 @@ const refreshTokenAction = (error: any) => {
 
 const instance = axios.create({})
 
+// Request interceptor
+instance.interceptors.request.use((config) => {
+    const token = store.getState().authentication.accessToken
+    config.headers['authorization'] = token
+
+    return config
+})
+
+// Response interceptor
 instance.interceptors.response.use(
     (response) => { return response },
     refreshTokenAction
