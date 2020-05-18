@@ -4,6 +4,7 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Logo from './Logo'
 import Background from './Background'
+import CustomSnackbar from '../reusableComponents/CustomSnackbar'
 
 export enum AuthenticationForm {
     LOGIN,
@@ -21,6 +22,7 @@ export default function AuthenticationPage() {
             {form === AuthenticationForm.LOGIN
                 ? <LoginForm setForm={setForm} />
                 : <RegisterForm setForm={setForm} />}
+            <CustomSnackbar />
         </div>
     )
 }

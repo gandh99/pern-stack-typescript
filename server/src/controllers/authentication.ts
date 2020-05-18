@@ -13,7 +13,7 @@ module.exports.register = async (req: Request, res: Response) => {
         const user = await Users.create(username, hashedPassword)
         res.status(200).json({
             message: 'Registration success.',
-            data: user
+            data: null
         })
     } catch (error) {
         res.status(401).json({

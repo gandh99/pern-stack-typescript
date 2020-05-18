@@ -3,7 +3,7 @@ import { history } from '../../config/history'
 import axios from 'axios'
 import { returnErrors } from './errorActions'
 
-export const registerUserAction = (username: string, password: string) => (dispatch: any) => {
+export const registerUserAction = (username: string, password: string, success: Function, error: Function) => (dispatch: any) => {
     axios
         .post('/authentication/register', { username, password })
         .then(res => {
@@ -11,6 +11,7 @@ export const registerUserAction = (username: string, password: string) => (dispa
                 type: authentication.REGISTER_SUCCESS,
                 payload: res
             })
+            success()
         })
         .catch(err => {
             dispatch({
@@ -18,5 +19,6 @@ export const registerUserAction = (username: string, password: string) => (dispa
                 payload: err
             })
             dispatch(returnErrors(err))
+            error()
         })
 }

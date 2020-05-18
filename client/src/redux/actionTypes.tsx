@@ -9,3 +9,8 @@ export const error = {
     GET_ERRORS: 'GET_ERRORS',
     CLEAR_ERRORS: 'CLEAR_ERRORS'
 }
+
+export const globalNotification = {
+    SHOW_SNACKBAR: 'SHOW_SNACKBAR',
+    HIDE_SNACKBAR: 'HIDE_SNACKBAR',
+}
