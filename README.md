@@ -14,6 +14,7 @@ A template for rapidly developing a full-stack web app using the PERN (PostgreSQ
 ## Technology Stack
 - Frontend:
   - ReactJS
+  - MaterialUI
   - Axios
   - Redux
   - Jest
