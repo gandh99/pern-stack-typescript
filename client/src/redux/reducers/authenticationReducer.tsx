@@ -9,7 +9,18 @@ const initialState = {
 export default function (state = initialState, action: any) {
     switch (action.type) {
         case authentication.LOGIN_SUCCESS:
+            console.log(action.payload)
+            return {
+                ...state,
+                isAuthenticated: true,
+                userData: action.payload
+            }
         case authentication.LOGIN_FAIL:
+            return {
+                ...state,
+                isAuthenticated: false,
+                userData: {}
+            }
         case authentication.REGISTER_SUCCESS:
         case authentication.REGISTER_FAIL:
         default:

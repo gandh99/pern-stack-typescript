@@ -4,9 +4,14 @@ import { Button, InputBase } from '@material-ui/core'
 import { usernameIsValid, passwordIsValid } from '../utils/validation/authentication'
 import Message from './Message'
 import { AuthenticationForm } from './AuthenticationPage'
+import { loginUserAction } from '../redux/actions/authenticationActions'
+import { useDispatch } from 'react-redux'
+import { showSnackbarAction } from '../redux/actions/globalNotificationActions'
+import { history } from '../config/history'
 
 export default function LoginForm(props: { setForm: any }) {
     const classes = useStyles()
+    const dispatch = useDispatch()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,6 +19,12 @@ export default function LoginForm(props: { setForm: any }) {
         event.preventDefault()
 
         if (usernameIsValid(username.trim()) && passwordIsValid(password.trim())) {
+            dispatch(loginUserAction(
+                username,
+                password,
+                () => history.push('/'),
+                () => dispatch(showSnackbarAction('Invalid username/password.', 'error'))
+            ))
         }
 
         resetForm()
