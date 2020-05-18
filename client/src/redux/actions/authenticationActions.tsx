@@ -7,7 +7,6 @@ export const registerUserAction = (username: string, password: string) => (dispa
     axios
         .post('/authentication/register', { username, password })
         .then(res => {
-            console.info(res)
             dispatch({
                 type: authentication.REGISTER_SUCCESS,
                 payload: res
@@ -19,6 +18,5 @@ export const registerUserAction = (username: string, password: string) => (dispa
                 payload: err
             })
             dispatch(returnErrors(err))
-            console.error(err)
         })
 }

@@ -8,10 +8,10 @@ const initialState = {
 
 export default function (state = initialState, action: any) {
     switch (action.type) {
-        case authentication.REGISTER_SUCCESS:
-        case authentication.REGISTER_FAIL:
         case authentication.LOGIN_SUCCESS:
         case authentication.LOGIN_FAIL:
+        case authentication.REGISTER_SUCCESS:
+        case authentication.REGISTER_FAIL:
         default:
             return state
     }
