@@ -1,5 +1,4 @@
 import { authentication } from '../actionTypes'
-import { history } from '../../config/history'
 import axios from 'axios'
 import { returnErrors } from './errorActions'
 
@@ -42,3 +41,21 @@ export const loginUserAction = (username: string, password: string, success: Fun
             error()
         })
 }
+
+// export const tokenConfig = (getState) => {
+//     // Get access token from the state in authenticationReducer
+//     const accessToken = getState().authentication.accessToken
+    
+//     const config = {
+//         headers: {
+//             'Content-type': 'application/json'
+//         }
+//     }
+
+//     // Add the access token to the header
+//     if (accessToken) {
+//         config.headers['authorization'] = accessToken
+//     }
+    
+//     return config
+// }

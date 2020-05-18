@@ -82,10 +82,10 @@ const useStyles = makeStyles((theme) => ({
     },
     textInput: {
         margin: '1.5rem 0 0 0',
-        backgroundColor: theme.palette.grey[300],
-        opacity: 0.4,
+        backgroundColor: theme.palette.grey[100],
         padding: '0.5rem 1rem',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        color: 'black'
     },
     button: {
         margin: '1.5rem 0 0 0',
